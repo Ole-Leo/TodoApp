@@ -1,0 +1,24 @@
+.base {
+  margin: 35px auto;
+  padding: 0 20px 30px;
+
+  width: 35vw;
+  width: 600px;
+
+  border-radius: 10px;
+  border: 1px solid #bae0ff;
+}
+
+.title {
+  color: #434343 !important;
+}
+
+.input {
+  &:focus {
+    border-bottom-color: #bae0ff;
+  }
+}
+
+.total {
+  color: #1677ff;
+}
