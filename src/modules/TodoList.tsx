@@ -28,10 +28,11 @@ export function TodoList() {
   })
 
   return (
-    <Flex vertical className={styles.base} gap={12}>
+    <Flex vertical className={styles.base} gap={12} data-testid="todo-app">
       <Typography.Title className={styles.title}>todos</Typography.Title>
 
       <Input
+        data-testid="new-todo-input"
         value={title}
         className={styles.input}
         variant="underlined"
@@ -42,6 +43,7 @@ export function TodoList() {
 
       <Flex align="center" gap={4}>
         <Button
+          data-testid="all"
           color="primary"
           size="small"
           variant={filter === 'all' ? 'filled' : 'text'}
@@ -50,6 +52,7 @@ export function TodoList() {
           All
         </Button>
         <Button
+          data-testid="active"
           color="primary"
           size="small"
           variant={filter === 'active' ? 'filled' : 'text'}
@@ -58,6 +61,7 @@ export function TodoList() {
           Active
         </Button>
         <Button
+          data-testid="completed"
           color="primary"
           size="small"
           variant={filter === 'completed' ? 'filled' : 'text'}
@@ -74,6 +78,7 @@ export function TodoList() {
         renderItem={(item) => (
           <List.Item>
             <Checkbox
+              data-testid={`todo-checkbox-${item.id}`}
               checked={item.completed}
               onChange={() => toggleCompleted(item.id)}
             >
@@ -83,10 +88,11 @@ export function TodoList() {
         )}
         footer={
           <Flex align="center" justify="space-between">
-            <Typography.Text className={styles.total}>
+            <Typography.Text className={styles.total} data-testid="items-left">
               {todos.filter((todo) => !todo.completed).length} items left
             </Typography.Text>
             <Button
+              data-testid="clear-completed"
               variant="filled"
               color="primary"
               size="small"
